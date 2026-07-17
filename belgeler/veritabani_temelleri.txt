@@ -1,0 +1,81 @@
+Veritabanı Yönetimi ve SQLite - Temel Kavramlar
+
+Veritabanı, yapılandırılmış verilerin organize şekilde saklandığı ve yönetildiği sistemdir. Modern uygulamaların büyük çoğunluğu veri kalıcılığı için veritabanı kullanır.
+
+== İlişkisel Veritabanları ==
+
+İlişkisel veritabanları, verileri tablolar halinde saklar. Her tablo satırlar (kayıtlar) ve sütunlar (alanlar) içerir. Tablolar arasında ilişkiler kurulabilir.
+
+Temel kavramlar:
+- Tablo (Table): Aynı türdeki verileri tutan yapı. Örneğin "kullaniciler" tablosu.
+- Satır (Row/Record): Tablodaki tek bir veri kaydı.
+- Sütun (Column/Field): Verinin bir özelliğini temsil eder (ad, yaş, e-posta vb.).
+- Birincil Anahtar (Primary Key): Her satırı benzersiz tanımlayan sütun.
+- Yabancı Anahtar (Foreign Key): Başka bir tabloya referans veren sütun.
+
+== SQL (Structured Query Language) ==
+
+SQL, ilişkisel veritabanlarını yönetmek için kullanılan standart sorgulama dilidir. Temel SQL komutları:
+
+Veri Tanımlama Dili (DDL):
+- CREATE TABLE: Yeni tablo oluşturur
+- DROP TABLE: Tabloyu siler
+- ALTER TABLE: Tablo yapısını değiştirir
+
+Veri İşleme Dili (DML):
+- SELECT: Veri sorgular
+- INSERT INTO: Yeni kayıt ekler
+- UPDATE: Mevcut kaydı günceller
+- DELETE: Kayıt siler
+
+Örnek SQL sorguları:
+
+CREATE TABLE belgeler (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    baslik TEXT NOT NULL,
+    icerik TEXT,
+    olusturma_tarihi TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO belgeler (baslik, icerik) VALUES ('Deneme Belgesi', 'Bu bir test içeriğidir.');
+
+SELECT * FROM belgeler WHERE id = 1;
+
+UPDATE belgeler SET icerik = 'Güncellenmiş içerik' WHERE id = 1;
+
+DELETE FROM belgeler WHERE id = 1;
+
+== SQLite Nedir? ==
+
+SQLite, sunucu gerektirmeyen, tek dosyada çalışan hafif bir ilişkisel veritabanı motorudur. Özellikleri:
+
+- Kurulum gerektirmez; bir .db dosyasına yazar
+- Python'ın standart kütüphanesine dahildir (sqlite3 modülü)
+- Küçük ve orta ölçekli projeler için idealdir
+- ACID (Atomicity, Consistency, Isolation, Durability) uyumludur
+- Mobil uygulamalar ve gömülü sistemlerde yaygın kullanılır
+
+== Python ile SQLite Kullanımı ==
+
+Python'da sqlite3 modülü ile SQLite veritabanı kolayca kullanılır:
+
+1. Bağlantı oluştur: sqlite3.connect("veritabani.db")
+2. Cursor (imleç) al: conn.cursor()
+3. SQL komutu çalıştır: cursor.execute("SQL KOMUTU")
+4. Değişiklikleri kaydet: conn.commit()
+5. Bağlantıyı kapat: conn.close()
+
+Veri okuma için fetchone() tek satır, fetchall() tüm satırları döndürür.
+
+== Blob ve JSON Veri Saklama ==
+
+SQLite'da karmaşık veriler (listeler, diziler) saklamak için iki yaklaşım kullanılır:
+
+BLOB: Ham ikili veri saklamak için. Numpy dizilerini pickle ile serileştirebilirsiniz.
+
+TEXT (JSON): Veriyi JSON string olarak saklayıp okurken parse etmek. RAG projelerinde embedding vektörlerini saklamak için sık kullanılır:
+
+embedding_str = json.dumps(vektor.tolist())  # Kaydetme
+vektor = np.array(json.loads(embedding_str)) # Okuma
+
+SQLite; hafifliği, taşınabilirliği ve sıfır konfigürasyon gerektirmesiyle prototip ve küçük ölçekli projeler için mükemmel bir terciptir.

@@ -1,0 +1,13 @@
+# Sürümler tekrarlanabilir kurulum için sabitlenmiştir.
+# Güncelleme: sürümü yükseltin, "python -m pytest" ve
+# "python degerlendirme.py" ile doğrulayın.
+
+# Foundry Local SDK (Windows / WinML). Diğer platformlarda
+# "foundry-local-sdk" paketini kullanın.
+foundry-local-sdk-winml==1.2.3
+
+# Cosine similarity ve vektör işlemleri
+numpy==2.4.6
+
+# Test çatısı (yalnızca geliştirme için gerekli)
+pytest==9.1.1

@@ -1,0 +1,53 @@
+Python Programlama Dili - Temel Kavramlar
+
+Python, 1991 yılında Guido van Rossum tarafından geliştirilen, okunabilirliği ve sadeliği ön planda tutan bir programlama dilidir. Günümüzde veri bilimi, yapay zeka, web geliştirme ve otomasyon alanlarında en çok tercih edilen dillerden biridir.
+
+== Değişkenler ve Veri Tipleri ==
+
+Python'da değişken tanımlamak için herhangi bir anahtar kelime kullanmaya gerek yoktur. Değer atandığı anda değişken oluşur.
+
+Temel veri tipleri şunlardır:
+- int: Tam sayılar (örnek: 42, -7, 0)
+- float: Ondalıklı sayılar (örnek: 3.14, -0.5)
+- str: Metin (karakter dizisi) (örnek: "Merhaba", 'Python')
+- bool: Mantıksal değer (True veya False)
+- list: Sıralı, değiştirilebilir koleksiyon (örnek: [1, 2, 3])
+- dict: Anahtar-değer çiftleri (örnek: {"isim": "Ali", "yaş": 25})
+
+== Fonksiyonlar ==
+
+Fonksiyonlar, tekrar kullanılabilir kod bloklarıdır. Python'da def anahtar kelimesiyle tanımlanır.
+
+def toplama(a, b):
+    sonuc = a + b
+    return sonuc
+
+Fonksiyonlar parametre alabilir, varsayılan değer atanabilir ve birden fazla değer döndürebilir.
+
+== Döngüler ==
+
+Python'da iki temel döngü yapısı bulunur:
+
+For döngüsü: Bir koleksiyon üzerinde sırayla gezinmek için kullanılır.
+While döngüsü: Bir koşul doğru olduğu sürece çalışmaya devam eder.
+
+== Koşul İfadeleri ==
+
+if, elif ve else anahtar kelimeleri ile koşullu işlemler yapılır. Python, girintileme (indentation) ile kod bloklarını ayırır; süslü parantez kullanmaz.
+
+== Modüller ve Import ==
+
+Python'ın güçlü yanlarından biri zengin standart kütüphanesidir. Modüller import anahtar kelimesiyle eklenir:
+
+import os        # İşletim sistemi işlemleri
+import json      # JSON veri işleme
+import sqlite3   # SQLite veritabanı
+import numpy     # Sayısal hesaplamalar
+
+Üçüncü parti kütüphaneler pip aracıyla kurulur: pip install numpy
+
+== Liste ve Sözlük İşlemleri ==
+
+Listeler sıfırdan başlayan indeksle erişilir. list.append() ile eleman eklenir, len() ile uzunluk bulunur. Sözlüklerde dict["anahtar"] ile değere ulaşılır, dict.keys() ile anahtarlar listelenir.
+
+Python'ı öğrenmek için en iyi yol pratik yapmaktır. Küçük projeler geliştirerek, hataları okuyarak ve düzelterek ilerlemeniz tavsiye edilir.

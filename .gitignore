@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Sanal ortam
+.venv/
+venv/
+
+# Üretilen veriler
+veritabani.db
+*.db
+
+# Test ve araç önbellekleri
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editör / IDE
+.vscode/
+.idea/
+
+# İşletim sistemi
+Thumbs.db
+.DS_Store
+
+# Yerel ayarlar ve gizli bilgiler
+.env
+*.local

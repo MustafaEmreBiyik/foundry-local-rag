@@ -1,0 +1,46 @@
+Yapay Zeka ve Makine Öğrenmesi - Temel Kavramlar
+
+Yapay zeka (AI - Artificial Intelligence), bilgisayar sistemlerinin insan zekasını taklit etmesini sağlayan teknolojiler bütünüdür. 1950'lerde Alan Turing'in öncü çalışmalarıyla temelleri atılmış, günümüzde ise hayatın her alanına girmiş bir disiplindir.
+
+== Yapay Zeka Türleri ==
+
+Dar Yapay Zeka (ANI - Artificial Narrow Intelligence): Belirli bir görevi insan düzeyinde veya üzerinde yapabilen sistemlerdir. Satranç oynayan Deep Blue, fotoğraf tanıyan sistemler bu kategoriye girer. Bugün kullanılan tüm AI uygulamaları bu türdendir.
+
+Genel Yapay Zeka (AGI - Artificial General Intelligence): İnsan gibi her türlü görevi yapabilen, henüz geliştirilememiş teorik bir AI türüdür.
+
+Süper Yapay Zeka (ASI - Artificial Super Intelligence): İnsan zekasını her alanda aşan, yalnızca teorik düzeyde tartışılan bir kavramdır.
+
+== Makine Öğrenmesi (Machine Learning) ==
+
+Makine öğrenmesi, bilgisayarların açıkça programlanmadan verilerden öğrenmesini sağlayan yapay zeka alt dalıdır. Üç temel yöntem vardır:
+
+Denetimli Öğrenme (Supervised Learning): Etiketli veri ile eğitim yapılır. Model, girdi-çıktı çiftlerini öğrenir. E-posta spam tespiti, hastalık teşhisi bu yönteme örnektir.
+
+Denetimsiz Öğrenme (Unsupervised Learning): Etiketsiz veriden örüntüler keşfedilir. Müşteri segmentasyonu, anormallik tespiti bu yöntemle çalışır.
+
+Pekiştirmeli Öğrenme (Reinforcement Learning): Ajan, çevresiyle etkileşerek ödül/ceza mekanizmasıyla öğrenir. Oyun oynayan yapay zekalar bu yöntemi kullanır.
+
+== Derin Öğrenme (Deep Learning) ==
+
+Derin öğrenme, insan beynindeki nöronlardan ilham alan yapay sinir ağlarını kullanan makine öğrenmesi yöntemidir. Çok katmanlı yapısı sayesinde karmaşık örüntüleri öğrenebilir. Görüntü tanıma, doğal dil işleme ve ses tanıma alanlarında devrim yaratmıştır.
+
+== Büyük Dil Modelleri (LLM) ==
+
+Büyük Dil Modelleri (Large Language Models), milyarlarca parametre içeren ve büyük metin verileriyle eğitilen derin öğrenme modelleridir. GPT, Claude, Gemini ve Phi bu modellere örnektir.
+
+LLM'ler şunları yapabilir:
+- Metin üretme ve tamamlama
+- Soru cevaplama
+- Özetleme
+- Çeviri
+- Kod yazma ve analiz etme
+
+== Doğal Dil İşleme (NLP) ==
+
+NLP, bilgisayarların insan dilini anlaması ve işlemesi ile ilgilenen yapay zeka dalıdır. Temel NLP görevleri arasında tokenizasyon, duygu analizi, varlık tanıma ve metin sınıflandırması sayılabilir.
+
+== Embedding (Gömme) ==
+
+Embedding, metinleri, kelimeleri veya diğer verileri sayısal vektörlere dönüştürme işlemidir. Bu vektörler, anlamsal benzerlikleri sayısal olarak ifade eder. Birbirine anlamca yakın kelimeler veya cümleler, vektör uzayında birbirine yakın konumlanır. RAG sistemlerinde belgeler embedding'e dönüştürülerek benzerlik araması yapılır.
+
+Yapay zeka alanı hızla gelişmektedir. Temel kavramları öğrenmek, bu teknolojiyi anlamlı şekilde kullanmak için kritik bir adımdır.

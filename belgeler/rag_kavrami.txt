@@ -1,0 +1,82 @@
+RAG (Retrieval-Augmented Generation) - Kapsamlı Rehber
+
+RAG, yapay zeka sistemlerinin dış bilgi kaynaklarına başvurarak daha doğru ve güncel cevaplar üretmesini sağlayan bir mimaridir. Büyük Dil Modelleri'nin (LLM) yalnızca eğitim verilerine dayalı cevap üretme kısıtlamasını aşmak için geliştirilmiştir.
+
+== RAG Neden Gerekli? ==
+
+Geleneksel LLM'lerin temel sınırlılıkları:
+
+1. Bilgi kesim tarihi (Knowledge Cutoff): Model, belirli bir tarihten sonrasını bilmez.
+2. Halüsinasyon (Hallucination): Model bilmediği konularda uydurma bilgi üretebilir.
+3. Özel bilgi eksikliği: Kurumsal belgeler, kişisel notlar gibi özel veriler modele dahil değildir.
+4. Güncellik sorunu: Hızla değişen bilgiler için model yetersiz kalır.
+
+RAG bu sorunları çözer: Modele soruyu cevaplamadan önce ilgili belgeler sağlanır.
+
+== RAG'ın Üç Temel Adımı ==
+
+1. RETRIEVAL (Geri Getirme / Arama):
+Kullanıcı sorusu, embedding modeli ile vektöre dönüştürülür. Bu vektör, önceden işlenmiş belge vektörleriyle karşılaştırılır. En benzer belge parçaları (chunk) seçilir.
+
+2. AUGMENTATION (Zenginleştirme / Bağlam Ekleme):
+Bulunan belge parçaları, kullanıcı sorusuyla birleştirilerek bir prompt oluşturulur. Bu prompt, modele "işte bilgi kaynakların, şimdi bu soruyu cevapla" der.
+
+3. GENERATION (Üretim / Cevap Verme):
+LLM, zenginleştirilmiş prompt'a dayanarak cevap üretir. Cevap yalnızca sağlanan belgelerden türetildiğinden daha doğru ve güvenilirdir.
+
+== Belge İşleme Pipeline'ı (Önceden Yapılan) ==
+
+RAG sistemi kullanılmadan önce belgeler hazırlanır:
+
+Adım 1 - Yükleme: .txt, .pdf, .docx gibi belgeler okunur.
+Adım 2 - Parçalama (Chunking): Büyük belgeler 200-500 kelimelik parçalara bölünür. Parçalar örtüşebilir (overlap) — bağlam kaybını önlemek için.
+Adım 3 - Embedding Üretimi: Her parça, embedding modeli ile sayısal vektöre dönüştürülür.
+Adım 4 - Depolama: Vektörler ve metin parçaları veritabanına kaydedilir.
+
+== Sorgu Zamanı Pipeline'ı (Her Soruda Yapılan) ==
+
+Adım 1: Kullanıcı sorusu alınır.
+Adım 2: Soru embedding'e dönüştürülür.
+Adım 3: Cosine similarity veya başka bir metrik ile en yakın vektörler bulunur.
+Adım 4: İlgili metin parçaları (top-k sonuç) context olarak hazırlanır.
+Adım 5: Prompt oluşturulur: sistem talimatı + context + soru.
+Adım 6: LLM'e gönderilir, cevap alınır.
+Adım 7: Kullanıcıya cevap gösterilir (isteğe bağlı olarak kaynak belirtilir).
+
+== Cosine Similarity (Kosinüs Benzerliği) ==
+
+İki vektör arasındaki açının kosinüsünü ölçer. Değer aralığı -1 ile +1 arasındadır:
+- 1: Vektörler aynı yönde (çok benzer)
+- 0: Vektörler birbirine dik (ilgisiz)
+- -1: Vektörler zıt yönde (zıt anlamlı)
+
+Metin embedding'lerinde genellikle 0.7 üzeri yüksek benzerlik kabul edilir.
+
+Formül: cos(θ) = (A · B) / (|A| × |B|)
+
+Python ile: np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+== Chunk Boyutu Stratejileri ==
+
+Küçük chunk (50-150 kelime): Hassas arama, ama bağlam kaybı riski
+Orta chunk (200-400 kelime): Dengeli yaklaşım, çoğu kullanım için ideal
+Büyük chunk (500+ kelime): Zengin bağlam, ama gürültü artar
+
+Örtüşmeli chunking (overlapping): Art arda gelen chunk'lar 50-100 kelime paylaşır. Cümle sınırlarında bölünmeden kaynaklanan bağlam kopukluğunu önler.
+
+== RAG vs Fine-tuning ==
+
+Fine-tuning: Modeli yeni verilerle yeniden eğitmek. Pahalı, zaman alıcı, her güncelleme için tekrar gerekir.
+
+RAG: Modeli değiştirmeden harici bilgi sağlamak. Ucuz, hızlı güncellenebilir, şeffaf (hangi belgeden geldiği bilinir).
+
+Çoğu pratik uygulamada RAG tercih edilir. Fine-tuning yalnızca belirli bir görev veya ton için modeli özelleştirmek gerektiğinde kullanılır.
+
+== Microsoft Foundry Local ile RAG ==
+
+Foundry Local, LLM'leri ve embedding modellerini internet gerektirmeden yerel olarak çalıştırmanızı sağlar. Bu proje Foundry Local kullanarak:
+- Embedding üretimi
+- Chat completion (cevap üretimi)
+tamamen offline gerçekleştirir.
+
+RAG mimarisi, yapay zekanın kurumsal bilgi tabanlarına, ders notlarına veya kişisel belgelere güvenilir şekilde erişmesinin en pratik yoludur.

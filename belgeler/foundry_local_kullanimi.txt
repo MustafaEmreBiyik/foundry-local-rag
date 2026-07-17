@@ -1,0 +1,120 @@
+Microsoft Foundry Local - Kurulum ve Kullanım Rehberi
+
+Microsoft Foundry Local, büyük dil modellerini (LLM) ve embedding modellerini internet bağlantısı olmadan kendi bilgisayarınızda çalıştırmanızı sağlayan bir platformdur. Azure AI Foundry'nin yerel sürümüdür.
+
+== Foundry Local'ın Avantajları ==
+
+1. Tam Gizlilik: Verileriniz hiçbir zaman buluta gitmez
+2. Offline Çalışma: İnternet bağlantısı gerektirmez
+3. Düşük Gecikme: Ağ gecikmesi olmadan hızlı yanıt
+4. Maliyet Yok: API ücreti ödemezsiniz
+5. Özelleştirme: Modeli yerel ihtiyaçlarınıza göre kullanın
+
+== Sistem Gereksinimleri ==
+
+Minimum:
+- Windows 10/11 veya macOS 12+
+- 16 GB RAM (8 GB ile küçük modeller çalışabilir)
+- 10-20 GB boş disk alanı (model boyutuna göre değişir)
+- Modern çok çekirdekli işlemci
+
+Önerilen:
+- 32 GB RAM
+- NVIDIA GPU (CUDA destekli) veya Apple Silicon
+- SSD disk
+
+== Kurulum Adımları ==
+
+Adım 1: Python Kurulumu
+Python 3.10 veya üzeri yüklü olmalıdır.
+python --version  komutu ile kontrol edin.
+Değilse https://www.python.org/downloads/ adresinden indirin.
+
+Adım 2: Foundry Local SDK Kurulumu
+pip install foundry-local-sdk
+
+Adım 3: Bağımlılıkların Kurulumu
+pip install numpy streamlit
+
+Adım 4: İlk Model Testi
+İlk çalıştırmada model otomatik olarak indirilir. Dosya boyutu modele göre 1-8 GB arasında değişir.
+
+== Temel Python API Kullanımı ==
+
+Model Yükleme ve Metin Üretme:
+
+from foundry_local import FoundryLocalManager
+
+manager = FoundryLocalManager()
+model_alias = "phi-3.5-mini"
+
+# Modeli indir ve yükle (ilk seferde indirme yapılır)
+model_id = manager.get_model_id(model_alias)
+
+# OpenAI uyumlu client oluştur
+from openai import OpenAI
+client = OpenAI(
+    base_url=manager.endpoint,
+    api_key=manager.api_key
+)
+
+# Chat completion
+yanit = client.chat.completions.create(
+    model=model_id,
+    messages=[
+        {"role": "system", "content": "Sen yardımcı bir asistansın."},
+        {"role": "user", "content": "Python nedir?"}
+    ]
+)
+print(yanit.choices[0].message.content)
+
+Embedding Üretme:
+
+# Embedding modeli için ayrı model yükle
+embed_model = "text-embedding-3-small-foundry"  # veya mevcut bir embedding modeli
+embed_id = manager.get_model_id(embed_model)
+
+embedding_yanit = client.embeddings.create(
+    model=embed_id,
+    input="Bu cümleyi vektöre çevir."
+)
+vektor = embedding_yanit.data[0].embedding
+print(f"Vektör boyutu: {len(vektor)}")
+
+== Desteklenen Modeller ==
+
+Dil Modelleri (Chat/Completion):
+- phi-3.5-mini: Küçük ve hızlı, 3.8B parametre
+- phi-3-medium: Orta büyüklük, daha kaliteli cevaplar
+- mistral-7b: Açık kaynaklı, iyi performans
+- llama-3.1-8b: Meta'nın güçlü açık modeli
+
+Embedding Modelleri:
+- text-embedding-3-small: OpenAI uyumlu, kompakt
+- bge-small: Hafif ve hızlı
+- e5-small: Çok dilli destek
+
+Model listesini güncel tutmak için Foundry Local dokümantasyonunu kontrol edin.
+
+== Sık Karşılaşılan Sorunlar ==
+
+Sorun: Model indirilmiyor
+Çözüm: İlk kurulum için internet bağlantısı gereklidir. Modeli bir kez indirdikten sonra offline çalışır.
+
+Sorun: "CUDA out of memory" hatası
+Çözüm: Daha küçük bir model seçin veya CPU modunda çalıştırın.
+
+Sorun: Yavaş yanıt
+Çözüm: GPU kullanımını etkinleştirin, yoksa daha küçük model tercih edin.
+
+Sorun: Port çakışması
+Çözüm: Foundry Local varsayılan olarak 5273 portunu kullanır. Başka servis varsa kapatın.
+
+== Performans İpuçları ==
+
+- İlk yüklemede model RAM'e alınır, sonraki sorgular hızlıdır
+- Batch embedding üretimi tek tek üretmekten daha verimlidir
+- GPU varsa CUDA desteği otomatik algılanır
+- Chunk boyutunu küçültmek embedding süresini azaltır
+
+Foundry Local, Microsoft'un açık kaynak topluluğuna katkılarından biridir. Güncel bilgiler için resmi dokümantasyon sayfasını takip edin: learn.microsoft.com/azure/foundry-local
