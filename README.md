@@ -1,5 +1,7 @@
 # Local RAG Asistanı
 
+[![Unit Tests](https://github.com/MustafaEmreBiyik/foundry-local-rag/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/MustafaEmreBiyik/foundry-local-rag/actions/workflows/tests.yml)
+
 Microsoft Foundry Local kullanan, tamamen offline çalışan belge tabanlı soru-cevap asistanı.
 
 ## Nasıl Çalışır?
