@@ -114,6 +114,7 @@ soruya ise "Bu konuda elimde bilgi yok." cevabının döndüğünü kontrol edin
 ├── generator.py      # Prompt oluşturma ve LLM cevabı alma
 ├── database.py       # SQLite bağlantı ve tablo yönetimi
 ├── degerlendirme.py  # Retrieval kalite değerlendirme seti
+├── performans.py     # Pipeline süre ölçümü ve rapor üretimi
 ├── requirements.txt  # Python bağımlılıkları
 ├── pytest.ini        # Test yapılandırması
 ├── tests/            # Birim ve smoke testleri
@@ -159,6 +160,21 @@ Retrieval kalitesi ve "bilgi yok" davranışını ölçen değerlendirme seti:
 python degerlendirme.py          # yalnızca retrieval (hızlı)
 python degerlendirme.py --llm    # LLM cevaplarıyla birlikte
 ```
+
+## Performans Ölçümü
+
+Model yükleme, ingestion, retrieval ve LLM cevap sürelerini ölçüp
+`performans-raporu.md` / `performans-raporu.json` üretir:
+
+```bash
+python performans.py                 # temel ölçüm
+python performans.py --karsilastir   # batch / top_k / chunk karşılaştırması da ekle
+python performans.py --llm-ornek 3   # LLM için örnek soru sayısını ayarla
+```
+
+Ingestion ölçümü geçici bir SQLite dosyasına yazar; `veritabani.db`
+değiştirilmez. Retrieval ve LLM ölçümleri mevcut indeksi kullanır
+(önce `python main.py --yukle` gerekir).
 
 ## Belge Ekleme / Güncelleme
 

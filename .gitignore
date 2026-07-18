@@ -10,6 +10,8 @@ venv/
 # Üretilen veriler
 veritabani.db
 *.db
+performans-raporu.json
+performans-raporu.md
 
 # Test ve araç önbellekleri
 .pytest_cache/
