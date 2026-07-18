@@ -48,7 +48,7 @@ CLI veya Ollama servisi kurmak gerekmez.
 
 ### 3. Belgelerinizi Ekleyin
 
-`belgeler/` klasörüne `.txt` formatında belgelerinizi koyun. Klasörde zaten 5 örnek belge bulunmaktadır.
+`belgeler/` klasörüne `.txt` formatında belgelerinizi koyun. Klasörde zaten 15 örnek belge bulunmaktadır (programlama, ağ, güvenlik, yapay zeka gibi konularda; kısa, uzun ve birbirine yakın içerikli belgeler dahil).
 
 ### 4. Belgeleri Sisteme Yükleyin
 
@@ -79,7 +79,7 @@ Kurulumun sağlıklı olduğundan emin olmak için sırasıyla:
 
 ```powershell
 python -m pytest              # 33 birim testi geçmeli (model gerektirmez)
-python degerlendirme.py       # 12/12 retrieval sonucu beklenir
+python degerlendirme.py       # 30 soruda her kategoride en az %90 beklenir
 python -m pytest -m smoke     # gerçek modellerle 2 uçtan uca test
 ```
 

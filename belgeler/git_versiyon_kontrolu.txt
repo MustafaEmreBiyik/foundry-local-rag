@@ -1,0 +1,55 @@
+Git ve Versiyon Kontrolü - Temel Kavramlar
+
+Git, yazılım projelerindeki dosya değişikliklerini takip etmeye yarayan dağıtık bir versiyon kontrol sistemidir. 2005 yılında Linus Torvalds tarafından Linux çekirdeği geliştirmesi için oluşturulmuştur. Günümüzde yazılım dünyasının fiili standardıdır.
+
+== Versiyon Kontrolü Neden Gerekli? ==
+
+1. Değişiklik geçmişi: Kodun her sürümü kayıt altındadır; kim, ne zaman, neyi değiştirdi görülebilir.
+2. Geri dönebilme: Hatalı bir değişiklik yapıldığında önceki çalışan sürüme dönülebilir.
+3. Ekip çalışması: Birden fazla kişi aynı projede çakışma olmadan çalışabilir.
+4. Deneme özgürlüğü: Dallar (branch) sayesinde ana kodu bozmadan yeni özellikler denenebilir.
+
+== Temel Kavramlar ==
+
+Depo (Repository): Projenin tüm dosyalarını ve değişiklik geçmişini tutan yapıdır. git init komutu ile oluşturulur.
+
+Commit: Projenin belirli bir andaki anlık görüntüsüdür. Her commit'in benzersiz bir kimliği (hash) ve açıklayıcı bir mesajı vardır. Commit, değişiklikleri kalıcı olarak geçmişe kaydetme işlemidir.
+
+Staging Area (Hazırlık Alanı): Commit'e girecek değişikliklerin seçildiği ara bölgedir. git add komutu dosyaları bu alana taşır.
+
+Branch (Dal): Ana koddan ayrılan bağımsız bir geliştirme hattıdır. Varsayılan dal genellikle main olarak adlandırılır. Yeni özellikler ayrı dallarda geliştirilip test edildikten sonra ana dala birleştirilir.
+
+Merge (Birleştirme): Bir daldaki değişikliklerin başka bir dala aktarılmasıdır. Aynı satır iki dalda farklı değiştirildiyse çakışma (conflict) oluşur ve elle çözülmesi gerekir.
+
+== Temel Git Komutları ==
+
+git init: Yeni bir Git deposu başlatır.
+git status: Çalışma dizinindeki değişikliklerin durumunu gösterir.
+git add dosya: Dosyayı hazırlık alanına ekler. git add . tüm değişiklikleri ekler.
+git commit -m "mesaj": Hazırlık alanındaki değişiklikleri commit'ler.
+git log: Commit geçmişini listeler.
+git branch: Dalları listeler; git branch isim ile yeni dal oluşturur.
+git checkout veya git switch: Dallar arasında geçiş yapar.
+git merge dal: Belirtilen dalı mevcut dala birleştirir.
+
+== Uzak Depolar ve GitHub ==
+
+GitHub, Git depolarını bulutta barındıran en yaygın platformdur. Temel uzak depo komutları:
+
+git remote add origin url: Uzak depo bağlantısı ekler.
+git push: Yerel commit'leri uzak depoya gönderir.
+git pull: Uzak depodaki değişiklikleri yerele indirir ve birleştirir.
+git clone url: Uzak depoyu bilgisayara kopyalar.
+
+== .gitignore Dosyası ==
+
+.gitignore, Git'in takip etmemesi gereken dosyaları listeler. Sanal ortamlar (.venv), derleme çıktıları, veritabanı dosyaları ve gizli anahtarlar bu dosyaya yazılır. Böylece gereksiz veya hassas dosyalar depoya girmez.
+
+== İyi Commit Alışkanlıkları ==
+
+- Her commit tek bir mantıksal değişiklik içermelidir.
+- Commit mesajı ne yapıldığını ve nedenini kısaca açıklamalıdır.
+- Çalışmayan kod commit'lenmemeli; testler geçtikten sonra commit atılmalıdır.
+- Sık ve küçük commit'ler, büyük ve seyrek commit'lerden iyidir.
+
+Versiyon kontrolü, tek kişilik projelerde bile vazgeçilmezdir: yedekleme, geçmiş takibi ve düzenli çalışma disiplini sağlar.

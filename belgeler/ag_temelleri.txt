@@ -1,0 +1,60 @@
+Bilgisayar Ağları ve İnternet - Temel Kavramlar
+
+Bilgisayar ağı, cihazların veri alışverişi yapabilmesi için birbirine bağlanmasıyla oluşan sistemdir. İnternet, dünya çapındaki ağların birbirine bağlanmasıyla oluşan en büyük ağdır.
+
+== IP Adresi ==
+
+IP adresi, ağdaki her cihaza atanan benzersiz kimliktir. İki sürümü kullanılır:
+
+IPv4: 192.168.1.10 gibi dört bölümden oluşan 32 bitlik adres. Yaklaşık 4,3 milyar adres sunar ve tükenme noktasına gelmiştir.
+IPv6: Çok daha geniş adres alanı sunan 128 bitlik yeni standart.
+
+Özel (private) IP adresleri (192.168.x.x gibi) yalnızca yerel ağda geçerlidir; internete çıkış, yönlendiricinin genel (public) IP adresi üzerinden yapılır.
+
+== DNS (Domain Name System) ==
+
+DNS, alan adlarını IP adreslerine çeviren sistemdir; internetin telefon rehberi olarak düşünülebilir. Kullanıcı tarayıcıya www.ornek.com yazdığında:
+
+1. Tarayıcı önce kendi önbelleğine bakar.
+2. Bulamazsa DNS sunucusuna sorgu gönderir.
+3. DNS sunucusu alan adına karşılık gelen IP adresini döndürür.
+4. Tarayıcı bu IP adresine bağlanarak sayfayı ister.
+
+DNS olmasaydı siteleri sayısal IP adresleriyle ezberlemek gerekirdi.
+
+== TCP/IP Protokol Ailesi ==
+
+TCP/IP, internetin temel iletişim protokolleridir.
+
+TCP (Transmission Control Protocol): Verinin eksiksiz ve doğru sırada ulaşmasını garanti eder. Bağlantı kurar, kaybolan paketleri yeniden gönderir. Web sayfaları, e-posta ve dosya aktarımında kullanılır.
+
+UDP (User Datagram Protocol): Garanti vermez ama hızlıdır. Canlı yayın, çevrimiçi oyun ve görüntülü görüşme gibi hızın kritik olduğu yerlerde tercih edilir.
+
+Veri, ağda paketler halinde taşınır: büyük veri küçük parçalara bölünür, her paket bağımsız yol alır ve hedefte birleştirilir.
+
+== Port Kavramı ==
+
+Port, bir cihazdaki farklı servisleri ayırt eden numaradır. IP adresi binayı, port ise daire kapısını gösterir. Yaygın portlar:
+
+- 80: HTTP (web)
+- 443: HTTPS (şifreli web)
+- 22: SSH (uzak terminal)
+- 25/587: SMTP (e-posta gönderme)
+
+== Yerel Ağ Cihazları ==
+
+Modem: İnternet servis sağlayıcısının hattını dijital veriye çevirir.
+Yönlendirici (Router): Ağlar arasında paketleri yönlendirir; evdeki cihazları internete bağlar.
+Anahtar (Switch): Yerel ağdaki cihazlar arasında veri iletir.
+Erişim Noktası (Access Point): Kablosuz (Wi-Fi) bağlantı sağlar.
+
+== Ağ Sorunlarını Teşhis Araçları ==
+
+ping: Hedef cihaza ulaşılıp ulaşılamadığını ve gecikme süresini ölçer.
+traceroute (Windows'ta tracert): Paketin hedefe giderken geçtiği yönlendiricileri listeler.
+ipconfig (Windows) / ifconfig (Linux): Cihazın IP yapılandırmasını gösterir.
+nslookup: Bir alan adının DNS kaydını sorgular.
+
+İnternet bağlantısı sorunlarında sıra genellikle şöyledir: önce modem/yönlendirici yeniden başlatılır, ping ile ağ geçidine erişim test edilir, sonra DNS sorgusu denenir.
+
+Ağ temellerini bilmek; bağlantı sorunlarını çözmede, güvenli ağ kurmada ve web uygulamalarının nasıl çalıştığını anlamada büyük kolaylık sağlar.

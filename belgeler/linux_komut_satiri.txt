@@ -1,0 +1,17 @@
+Linux Komut Satırı - Hızlı Başvuru
+
+Linux komut satırı (terminal), sistemi metin komutlarıyla yönetmeyi sağlar.
+
+Temel dosya komutları:
+- ls: Bulunulan dizindeki dosya ve klasörleri listeler. ls -l ayrıntılı, ls -a gizli dosyaları da gösterir.
+- cd dizin: Dizin değiştirir. cd .. bir üst dizine çıkar.
+- pwd: Bulunulan dizinin tam yolunu gösterir.
+- cp kaynak hedef: Dosya kopyalar. cp -r klasörleri de kopyalar.
+- mv kaynak hedef: Dosya taşır veya yeniden adlandırır.
+- rm dosya: Dosya siler. rm -r klasör siler; geri dönüşü yoktur, dikkatli kullanılmalıdır.
+- mkdir isim: Yeni klasör oluşturur.
+- cat dosya: Dosya içeriğini ekrana yazdırır.
+
+Yardım almak için: komutun ardından --help yazın veya man komut ile kılavuz sayfasını açın.
+
+Yönetici yetkisi gerektiren işlemler sudo ile çalıştırılır. Komutları anlamadan sudo ile çalıştırmak sistem dosyalarına zarar verebilir.

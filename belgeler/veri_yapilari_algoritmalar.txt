@@ -1,0 +1,70 @@
+Veri Yapıları ve Algoritmalar - Kapsamlı Rehber
+
+Veri yapıları, verileri bellekte organize etme biçimleridir; algoritmalar ise bir problemi çözmek için izlenen adım adım yöntemlerdir. İkisi birlikte, verimli yazılımın temelini oluşturur.
+
+== Neden Önemli? ==
+
+Aynı problemi çözen iki program arasında binlerce kat hız farkı olabilir. Doğru veri yapısı ve algoritma seçimi; büyük veri kümelerinde, sık çağrılan işlemlerde ve kısıtlı donanımda belirleyicidir. Teknik mülakatların da en yaygın konusudur.
+
+== Algoritma Karmaşıklığı ve Big-O Gösterimi ==
+
+Big-O gösterimi, bir algoritmanın girdi boyutu büyüdükçe çalışma süresinin nasıl arttığını ifade eder:
+
+- O(1) Sabit zaman: Girdi boyutundan bağımsızdır. Örnek: dizinin ilk elemanına erişim.
+- O(log n) Logaritmik: Her adımda problem yarıya iner. Örnek: ikili arama.
+- O(n) Doğrusal: Süre girdiyle orantılı artar. Örnek: listede tek tek arama.
+- O(n log n): Verimli sıralama algoritmalarının sınıfı. Örnek: merge sort.
+- O(n²) Karesel: İç içe iki döngü. Örnek: bubble sort. Büyük veride yavaştır.
+- O(2^n) Üstel: Her elemanla süre ikiye katlanır; yalnızca küçük girdilerde kullanılabilir.
+
+Big-O en kötü durumu ifade eder; pratik performans için ortalama durum da göz önünde bulundurulmalıdır.
+
+== Temel Veri Yapıları ==
+
+Dizi (Array): Elemanların bellekte yan yana durduğu yapıdır. İndeksle erişim O(1), araya ekleme O(n)'dir. Boyutu genellikle sabittir; Python'daki list dinamik dizidir.
+
+Bağlı Liste (Linked List): Her eleman (düğüm), veriyi ve bir sonraki düğümün adresini tutar. Başa ekleme O(1), indeksle erişim O(n)'dir. Sık ekleme/silme yapılan senaryolarda avantajlıdır.
+
+Yığın (Stack): Son giren ilk çıkar (LIFO - Last In First Out). push ile eklenir, pop ile çıkarılır. Geri al (undo) mekanizmaları, fonksiyon çağrı yığını ve parantez eşleme problemlerinde kullanılır.
+
+Kuyruk (Queue): İlk giren ilk çıkar (FIFO - First In First Out). Yazıcı kuyrukları, görev sıraları ve genişlik öncelikli aramada kullanılır.
+
+Hash Tablosu (Hash Table): Anahtarı bir hash fonksiyonuyla dizindeki konuma dönüştürür. Ekleme, silme ve arama ortalama O(1)'dir. Python'daki dict ve set bu yapıyı kullanır. Farklı anahtarların aynı konuma düşmesine çakışma (collision) denir ve zincirleme gibi yöntemlerle çözülür.
+
+Ağaç (Tree): Hiyerarşik yapıdır; kök düğümden dallanır. İkili arama ağacında (BST) sol alt ağaç küçük, sağ alt ağaç büyük değerleri tutar; dengeli olduğunda arama O(log n)'dir. Dosya sistemleri ve veritabanı indeksleri ağaç yapıları kullanır.
+
+Graf (Graph): Düğümler ve onları bağlayan kenarlardan oluşur. Sosyal ağlar, harita ve yol bulma, ağ topolojileri graf ile modellenir. Yönlü/yönsüz ve ağırlıklı/ağırlıksız türleri vardır.
+
+== Arama Algoritmaları ==
+
+Doğrusal Arama (Linear Search): Elemanları baştan sona tek tek kontrol eder. O(n) sürer, sırasız listelerde kullanılır.
+
+İkili Arama (Binary Search): Yalnızca sıralı listelerde çalışır. Ortadaki elemana bakar; aranan değer küçükse sol yarıda, büyükse sağ yarıda devam eder. Her adımda arama alanı yarılanır, bu yüzden O(log n) sürer. Bir milyon elemanlı listede en fazla 20 karşılaştırma yeterlidir.
+
+== Sıralama Algoritmaları ==
+
+Bubble Sort: Komşu elemanları karşılaştırıp yer değiştirir. O(n²) olduğundan yalnızca eğitim amaçlıdır.
+
+Selection Sort: Her turda kalan elemanların en küçüğünü bulup başa koyar. O(n²) sürer.
+
+Insertion Sort: Elemanları tek tek alıp sıralı bölümde doğru yere yerleştirir. Küçük veya neredeyse sıralı listelerde hızlıdır.
+
+Merge Sort: Böl ve fethet yaklaşımıyla listeyi ikiye bölüp parçaları sıralayarak birleştirir. Her durumda O(n log n) garanti eder; kararlı bir sıralamadır.
+
+Quick Sort: Bir pivot eleman seçip küçükleri sola, büyükleri sağa toplar ve alt parçaları özyinelemeli sıralar. Ortalama O(n log n) ile pratikte en hızlılardandır; en kötü durumda O(n²) olabilir.
+
+Python'daki yerleşik sorted() fonksiyonu, merge sort ile insertion sort'u birleştiren Timsort algoritmasını kullanır ve O(n log n) garanti eder.
+
+== Özyineleme (Recursion) ==
+
+Özyineleme, bir fonksiyonun kendisini çağırmasıdır. Her özyinelemeli çözümde iki parça bulunur: durma koşulu (base case) ve problemi küçülten adım. Faktöriyel, Fibonacci ve ağaç gezinme klasik örneklerdir. Durma koşulu unutulursa sonsuz döngü ve yığın taşması (stack overflow) oluşur.
+
+== Pratik Seçim Rehberi ==
+
+- Hızlı anahtar-değer erişimi gerekiyorsa: hash tablosu (dict).
+- Sıralı veri üzerinde hızlı arama: sıralı dizi + ikili arama veya dengeli ağaç.
+- Sık başa/sona ekleme: bağlı liste veya çift uçlu kuyruk (deque).
+- Son işlenen öncelikli görevler: yığın; sırayla işlenen görevler: kuyruk.
+- İlişki ve bağlantı modelleme: graf.
+
+Veri yapıları ve algoritmaları öğrenmenin en iyi yolu, küçük problemleri önce kağıt üzerinde çözüp sonra kodlamaktır. Hazır kütüphane fonksiyonlarının arkasındaki maliyeti bilmek, doğru tasarım kararları vermenizi sağlar.

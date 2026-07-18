@@ -1,0 +1,50 @@
+Prompt Mühendisliği - Etkili Yapay Zeka Yönergeleri Yazma
+
+Prompt mühendisliği, büyük dil modellerinden istenen çıktıyı almak için girdileri (prompt) bilinçli şekilde tasarlama pratiğidir. Aynı modelden, iyi yazılmış bir prompt ile kötü yazılmış olana göre çok daha isabetli sonuçlar alınabilir.
+
+== Prompt Türleri ==
+
+Sistem promptu (system prompt): Modelin genel davranışını, rolünü ve kurallarını belirler. Konuşma boyunca geçerlidir. Örnek: "Sen bir hukuk asistanısın; yalnızca verilen belgelere dayanarak cevap ver."
+
+Kullanıcı promptu (user prompt): Kullanıcının asıl sorusunu veya talimatını içerir.
+
+Bu ayrım, RAG sistemlerinde kritiktir: sistem promptu kuralları koyar, kullanıcı promptu bağlam (context) ve soruyu taşır.
+
+== Temel İlkeler ==
+
+1. Açık ve belirli olun: "Bu metni özetle" yerine "Bu metni en fazla üç maddede, teknik olmayan bir dille özetle" daha iyi sonuç verir.
+
+2. Rol verin: "Deneyimli bir Python öğretmeni olarak açıkla" gibi bir rol, cevabın tonunu ve derinliğini şekillendirir.
+
+3. Format belirtin: Çıktının madde listesi, tablo veya JSON olmasını istiyorsanız bunu açıkça yazın ve mümkünse örnek gösterin.
+
+4. Sınırları çizin: Cevap uzunluğu, kaçınılacak konular ve bilinmeyen durumlarda ne yapılacağı belirtilmelidir. "Bilmiyorsan bilmiyorum de" talimatı halüsinasyonu azaltır.
+
+5. Bağlamı sağlayın: Model yalnızca prompt içinde verilen bilgiyi görür; gerekli arka plan bilgisi prompta eklenmelidir.
+
+== Örnekli Yönlendirme ==
+
+Zero-shot: Örnek vermeden doğrudan talimat. Basit görevlerde yeterlidir.
+
+Few-shot: Prompt içine birkaç girdi-çıktı örneği eklenir. Model örüntüyü taklit eder; biçim tutarlılığı gereken görevlerde çok etkilidir.
+
+Zincirleme düşünme (chain-of-thought): Modelden adım adım akıl yürütmesi istenir ("adım adım düşün"). Matematik ve mantık sorularında doğruluğu artırır.
+
+== RAG Sistemlerinde Prompt Tasarımı ==
+
+RAG promptu tipik olarak üç bölümden oluşur:
+
+1. Sistem talimatı: "Yalnızca aşağıdaki belgelerden yararlan; belgede yoksa 'bilgim yok' de."
+2. Bağlam: Retrieval ile bulunan belge parçaları, kaynak etiketleriyle birlikte.
+3. Soru: Kullanıcının orijinal sorusu.
+
+Belge parçalarını numaralandırmak ve kaynak adlarıyla etiketlemek, modelin cevabında kaynak göstermesini kolaylaştırır. Talimatın bağlamdan önce gelmesi, modelin kurallara uyma oranını artırır.
+
+== Sık Yapılan Hatalar ==
+
+- Birden çok soruyu tek prompta sıkıştırmak: Model bazılarını atlayabilir; karmaşık istekleri bölmek daha güvenlidir.
+- Belirsiz zamirler ve muğlak ifadeler: "Bunu düzelt" yerine neyin nasıl düzeltileceğini yazın.
+- Olumsuz talimatlara aşırı güvenmek: "X yapma" yerine ne yapılacağını söylemek genelde daha etkilidir.
+- Prompt'u hiç yinelememek: İlk sonuç kötüyse promptu gözden geçirip netleştirmek, çoğu zaman model değiştirmekten daha etkilidir.
+
+Prompt mühendisliği deneyseldir: küçük değişikliklerin etkisini gözlemleyip promptu adım adım iyileştirmek en sağlıklı yöntemdir. İyi bir prompt; açık talimat, yeterli bağlam ve net çıktı beklentisinin birleşimidir.

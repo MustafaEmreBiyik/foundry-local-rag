@@ -1,0 +1,49 @@
+Siber Güvenlik - Temel Kavramlar ve Korunma Yöntemleri
+
+Siber güvenlik, bilgisayar sistemlerini, ağları ve verileri yetkisiz erişime, saldırılara ve hasara karşı koruma disiplinidir. Dijitalleşen dünyada hem bireyler hem kurumlar için kritik önem taşır.
+
+== Temel Güvenlik İlkeleri (CIA Üçlüsü) ==
+
+Gizlilik (Confidentiality): Bilgiye yalnızca yetkili kişilerin erişebilmesi.
+Bütünlük (Integrity): Bilginin yetkisiz kişilerce değiştirilmemesi.
+Erişilebilirlik (Availability): Sistemin ihtiyaç duyulduğunda çalışır durumda olması.
+
+== Yaygın Saldırı Türleri ==
+
+Phishing (Oltalama): Saldırganın güvenilir bir kurum gibi davranarak sahte e-posta veya mesajlarla kullanıcının parolasını, kart bilgilerini veya kişisel verilerini çalmaya çalışmasıdır. En yaygın saldırı yöntemidir. Korunmak için: gönderen adresini dikkatle kontrol edin, beklenmedik bağlantılara tıklamayın, acil işlem isteyen mesajlara şüpheyle yaklaşın ve bilgilerinizi yalnızca resmi sitelere girin.
+
+Kötü Amaçlı Yazılım (Malware): Sisteme zarar vermek veya veri çalmak için yazılmış programlardır. Virüs, solucan (worm), truva atı (trojan) ve casus yazılım (spyware) bu kategoriye girer.
+
+Fidye Yazılımı (Ransomware): Dosyaları şifreleyip erişimi engelleyen ve karşılığında fidye isteyen kötü amaçlı yazılımdır. Düzenli yedekleme en etkili savunmadır.
+
+Sosyal Mühendislik: Teknik açık yerine insan psikolojisini hedef alan yöntemlerdir. Telefonla kendini yetkili olarak tanıtma veya aciliyet duygusu yaratma tipik örneklerdir.
+
+Kaba Kuvvet Saldırısı (Brute Force): Parolayı tüm kombinasyonları deneyerek bulmaya çalışmaktır. Uzun ve karmaşık parolalar bu saldırıyı pratikte imkansız kılar.
+
+== Parola Güvenliği ==
+
+- En az 12 karakter uzunluğunda, büyük/küçük harf, rakam ve sembol içeren parolalar kullanın.
+- Her hesap için farklı parola belirleyin; bir parola sızarsa diğer hesaplar etkilenmesin.
+- Parolaları hatırlamak için parola yöneticisi kullanın.
+- Kişisel bilgilerden (doğum tarihi, isim) türetilen parolalardan kaçının.
+
+== İki Faktörlü Doğrulama (2FA) ==
+
+İki faktörlü doğrulama, parolaya ek olarak ikinci bir doğrulama adımı ister: telefona gelen kod, doğrulama uygulaması veya fiziksel anahtar. Parola çalınsa bile hesabı korur. Tüm önemli hesaplarda (e-posta, bankacılık) etkinleştirilmesi şiddetle önerilir.
+
+== Şifreleme (Encryption) ==
+
+Şifreleme, veriyi yalnızca anahtara sahip kişilerin okuyabileceği biçime dönüştürür. İki temel tür vardır:
+
+Simetrik şifreleme: Aynı anahtar hem şifreleme hem çözme için kullanılır (örnek: AES).
+Asimetrik şifreleme: Açık anahtar ile şifrelenen veri yalnızca özel anahtar ile çözülür (örnek: RSA). HTTPS bağlantıları bu yöntemi kullanır.
+
+== Günlük Korunma Önerileri ==
+
+1. İşletim sistemi ve uygulamaları güncel tutun; güncellemeler bilinen açıkları kapatır.
+2. Bilinmeyen kaynaklardan yazılım indirmeyin.
+3. Önemli verilerinizi düzenli olarak yedekleyin (3-2-1 kuralı: 3 kopya, 2 farklı ortam, 1 kopya farklı konumda).
+4. Halka açık Wi-Fi ağlarında hassas işlem yapmaktan kaçının.
+5. Cihazlarınızı ekran kilidi ile koruyun.
+
+Siber güvenlikte en zayıf halka genellikle insandır; teknik önlemler kadar kullanıcı bilinci de önemlidir.

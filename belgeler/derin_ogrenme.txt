@@ -1,0 +1,44 @@
+Derin Öğrenme ve Sinir Ağları - Temel Kavramlar
+
+Derin öğrenme (deep learning), insan beynindeki nöron ağlarından esinlenen çok katmanlı yapay sinir ağlarıyla verilerden öğrenme yöntemidir. Makine öğrenmesinin bir alt dalıdır ve görüntü tanıma, ses işleme ve doğal dil işleme alanlarındaki büyük ilerlemelerin arkasındaki teknolojidir.
+
+== Yapay Nöron ve Katmanlar ==
+
+Yapay nöron; girdileri ağırlıklarla çarpıp toplayan, sonucu bir aktivasyon fonksiyonundan geçiren basit bir hesaplama birimidir. Sinir ağı üç tür katmandan oluşur:
+
+Girdi katmanı: Ham veriyi (piksel değerleri, kelime vektörleri) alır.
+Gizli katmanlar: Veriyi kademeli olarak daha soyut temsillere dönüştürür. "Derin" ifadesi çok sayıda gizli katmanı belirtir.
+Çıktı katmanı: Nihai tahmini üretir (sınıf olasılığı, sayı, sonraki kelime).
+
+İlk katmanlar basit örüntüleri (kenar, köşe), derin katmanlar karmaşık kavramları (yüz, nesne) öğrenir.
+
+== Eğitim Süreci ==
+
+Sinir ağı eğitimi dört adımın tekrarıdır:
+
+1. İleri yayılım (forward propagation): Girdi ağdan geçirilir, tahmin üretilir.
+2. Kayıp hesabı (loss): Tahmin ile gerçek değer arasındaki hata bir kayıp fonksiyonuyla ölçülür.
+3. Geri yayılım (backpropagation): Hatanın her ağırlığa katkısı türev yoluyla hesaplanır.
+4. Ağırlık güncelleme: Gradyan inişi (gradient descent) ile ağırlıklar hatayı azaltacak yönde küçük adımlarla değiştirilir. Adım büyüklüğünü öğrenme oranı (learning rate) belirler.
+
+Bu döngü, veri kümesi üzerinde defalarca (epoch) tekrarlanır.
+
+== Aşırı Öğrenme (Overfitting) ==
+
+Model, eğitim verisini ezberleyip yeni veride başarısız oluyorsa aşırı öğrenme vardır. Belirtisi: eğitim doğruluğu yüksek, test doğruluğu düşüktür. Çözümler: daha fazla veri, dropout (eğitimde rastgele nöron kapatma), erken durdurma ve veri çoğaltma (augmentation).
+
+== Yaygın Ağ Mimarileri ==
+
+CNN (Convolutional Neural Network - Evrişimli Sinir Ağı): Görüntü işleme için tasarlanmıştır. Evrişim filtreleriyle görüntüdeki yerel örüntüleri tarar. Yüz tanıma, tıbbi görüntü analizi ve otonom araç görüşünde kullanılır.
+
+RNN (Recurrent Neural Network - Tekrarlayan Sinir Ağı): Sıralı verileri (zaman serisi, metin) işler; önceki adımların bilgisini içsel durumda taşır. Uzun dizilerde unutma problemi yaşadığından LSTM ve GRU türevleri geliştirilmiştir.
+
+Transformer: Dikkat (attention) mekanizmasıyla dizinin tüm öğeleri arasındaki ilişkileri aynı anda değerlendirir. RNN'lerin aksine paralel işlenebilir; bu, çok büyük modellerin eğitilmesini mümkün kılmıştır. GPT ve benzeri büyük dil modelleri Transformer mimarisi üzerine kuruludur. Embedding modelleri de genellikle Transformer tabanlıdır.
+
+== Donanım ve Çerçeveler ==
+
+Sinir ağı eğitimi yoğun matris çarpımı gerektirir; GPU'lar bu işlemleri binlerce çekirdekle paralel yaparak eğitimi CPU'ya göre onlarca kat hızlandırır. Yaygın derin öğrenme çerçeveleri PyTorch ve TensorFlow'dur. Eğitilmiş modeli kullanmaya çıkarım (inference) denir; çıkarım, eğitimden çok daha az kaynak ister ve küçük modellerde CPU ile de yapılabilir.
+
+== Derin Öğrenme Ne Zaman Uygun? ==
+
+Derin öğrenme; bol veri, karmaşık örüntüler ve güçlü donanım varsa parlar. Küçük ve tablo halindeki verilerde ise klasik makine öğrenmesi yöntemleri (karar ağaçları, lojistik regresyon) çoğu zaman daha pratik ve yorumlanabilirdir. Doğru araç, problemin boyutuna ve veri miktarına göre seçilmelidir.

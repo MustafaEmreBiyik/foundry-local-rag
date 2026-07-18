@@ -1,0 +1,47 @@
+Bulut Bilişim - Temel Kavramlar
+
+Bulut bilişim (cloud computing), bilgi işlem kaynaklarının (sunucu, depolama, veritabanı, yazılım) internet üzerinden, kullandıkça öde modeliyle sunulmasıdır. Kendi donanımınızı satın almak yerine sağlayıcının veri merkezindeki kaynakları kiralarsınız.
+
+== Bulutun Avantajları ==
+
+1. Ölçeklenebilirlik: Kaynaklar ihtiyaca göre dakikalar içinde artırılıp azaltılabilir.
+2. Maliyet: Peşin donanım yatırımı yerine kullanım kadar ödeme yapılır.
+3. Erişilebilirlik: Kaynaklara her yerden erişilebilir.
+4. Dayanıklılık: Veriler birden fazla veri merkezinde yedeklenebilir.
+5. Bakım yükü: Donanım bakımı ve fiziksel güvenlik sağlayıcının sorumluluğundadır.
+
+Dezavantajlar da vardır: internete bağımlılık, uzun vadede artabilen maliyetler, veri egemenliği ve sağlayıcıya bağımlılık (vendor lock-in) riski.
+
+== Hizmet Modelleri ==
+
+IaaS (Infrastructure as a Service - Altyapı Hizmeti): Sanal sunucu, ağ ve depolama sunulur; işletim sistemi ve üzerindeki her şeyi siz yönetirsiniz. En esnek modeldir.
+
+PaaS (Platform as a Service - Platform Hizmeti): Uygulamanızı çalıştıracak hazır platform sunulur; sunucu ve işletim sistemi yönetimiyle uğraşmazsınız, yalnızca kodunuza odaklanırsınız.
+
+SaaS (Software as a Service - Yazılım Hizmeti): Hazır yazılım doğrudan tarayıcıdan kullanılır. E-posta servisleri ve çevrimiçi ofis uygulamaları SaaS örnekleridir.
+
+Kısa kural: IaaS'ta altyapıyı, PaaS'ta yalnızca uygulamayı, SaaS'ta hiçbir şeyi yönetmezsiniz.
+
+== Dağıtım Modelleri ==
+
+Genel bulut (Public cloud): Kaynaklar sağlayıcıya aittir ve birçok müşteri tarafından paylaşılır. Amazon Web Services (AWS), Microsoft Azure ve Google Cloud başlıca sağlayıcılardır.
+
+Özel bulut (Private cloud): Altyapı tek bir kuruma aittir; yüksek kontrol ve gizlilik sağlar, maliyeti yüksektir.
+
+Hibrit bulut (Hybrid cloud): Genel ve özel bulutun birlikte kullanılmasıdır. Hassas veriler özelde tutulurken değişken yükler genel buluta taşınabilir.
+
+== Temel Bulut Kavramları ==
+
+Bölge (Region) ve Erişilebilirlik Alanı (Availability Zone): Sağlayıcıların dünyaya dağılmış veri merkezi grupları. Kullanıcıya yakın bölge seçmek gecikmeyi azaltır.
+
+Nesne Depolama (Object Storage): Dosyaların bucket adı verilen kaplarda saklandığı, neredeyse sınırsız ölçeklenen depolama türü.
+
+Sunucusuz Bilişim (Serverless): Kod, sunucu yönetimi olmadan yalnızca çalıştığı süre için ücretlendirilerek çalıştırılır. Kısa süreli ve olay tetiklemeli görevler için uygundur.
+
+Otomatik Ölçekleme (Auto Scaling): Trafik arttığında yeni sunucuların otomatik eklenmesi, azaldığında kapatılmasıdır.
+
+== Bulut ve Yapay Zeka ==
+
+Büyük dil modellerinin çoğu bulut API'leri üzerinden sunulur; bu, güçlü donanım gerektirmeden erişim sağlar ancak veriler sağlayıcıya gönderilir. Gizlilik gerektiren senaryolarda modelleri yerel çalıştırmak (örneğin Foundry Local gibi araçlarla) alternatiftir: veri cihazda kalır ama donanım sorumluluğu kullanıcıya geçer.
+
+Bulut mu yerel mi kararı; gizlilik gereksinimi, maliyet, ölçek ve donanım imkanına göre verilir. Küçük ölçekli, gizlilik odaklı projelerde yerel çözümler; değişken ve büyük yüklerde bulut avantajlıdır.

@@ -1,0 +1,56 @@
+Web Geliştirme - Temel Kavramlar
+
+Web geliştirme, internet üzerinden erişilen siteler ve uygulamalar oluşturma sürecidir. İstemci tarafı (frontend) ve sunucu tarafı (backend) olmak üzere iki ana alandan oluşur.
+
+== Web'in Üç Yapı Taşı ==
+
+HTML (HyperText Markup Language): Sayfanın iskeletini ve içeriğini tanımlar. Başlıklar, paragraflar, resimler, bağlantılar ve formlar HTML etiketleriyle oluşturulur. Örneğin <h1> ana başlığı, <p> paragrafı, <a> bağlantıyı temsil eder.
+
+CSS (Cascading Style Sheets): Sayfanın görünümünü ve düzenini belirler. Renkler, yazı tipleri, boşluklar, hizalamalar ve ekran boyutuna göre uyum (responsive tasarım) CSS ile sağlanır.
+
+JavaScript: Sayfaya etkileşim kazandıran programlama dilidir. Düğme tıklamaları, form doğrulama ve içeriğin dinamik güncellenmesi JavaScript ile yapılır.
+
+Kısaca: HTML içerik, CSS görünüm, JavaScript davranıştır.
+
+== İstemci-Sunucu Mimarisi ==
+
+Web, istemci-sunucu modeliyle çalışır:
+
+1. Kullanıcı tarayıcıya bir adres yazar (istemci).
+2. Tarayıcı, sunucuya bir HTTP isteği gönderir.
+3. Sunucu isteği işler ve bir yanıt döndürür (HTML sayfası, JSON verisi vb.).
+4. Tarayıcı yanıtı işleyip kullanıcıya gösterir.
+
+== HTTP Protokolü ==
+
+HTTP (HyperText Transfer Protocol), istemci ile sunucu arasındaki iletişim kurallarını tanımlar. Temel HTTP metotları:
+
+- GET: Veri okumak için kullanılır (sayfa görüntüleme).
+- POST: Yeni veri göndermek için kullanılır (form gönderme).
+- PUT: Mevcut veriyi güncellemek için kullanılır.
+- DELETE: Veri silmek için kullanılır.
+
+HTTP durum kodları sonucu bildirir: 200 başarılı, 404 bulunamadı, 500 sunucu hatası anlamına gelir.
+
+HTTPS, HTTP'nin şifrelenmiş sürümüdür; istemci ile sunucu arasındaki trafik TLS ile korunur. Modern sitelerde HTTPS standarttır.
+
+== Frontend ve Backend ==
+
+Frontend (istemci tarafı): Kullanıcının gördüğü ve etkileşime girdiği kısımdır. HTML, CSS ve JavaScript ile geliştirilir.
+
+Backend (sunucu tarafı): Veritabanı işlemleri, kullanıcı doğrulama ve iş mantığı gibi arka plan görevlerini yürütür. Python, C#, Java gibi dillerle yazılabilir. Backend, frontend'e genellikle JSON formatında veri sunar.
+
+== Statik ve Dinamik Siteler ==
+
+Statik site: İçeriği önceden hazırlanmış, herkese aynı görünen sayfalardan oluşur. Tanıtım siteleri ve dokümantasyon için uygundur.
+
+Dinamik site: İçerik, kullanıcıya ve veritabanındaki verilere göre anlık oluşturulur. E-ticaret siteleri ve sosyal ağlar dinamiktir.
+
+== İyi Uygulamalar ==
+
+- Sayfalar mobil cihazlarda da düzgün görünmelidir (responsive tasarım).
+- Görseller sıkıştırılmalı, gereksiz dosyalar kaldırılmalıdır (performans).
+- Formlardan gelen her veri sunucu tarafında doğrulanmalıdır (güvenlik).
+- Anlamlı HTML etiketleri kullanılmalıdır; bu hem erişilebilirliği hem arama motoru görünürlüğünü artırır.
+
+Web geliştirmeye başlamak için tarayıcı ve metin editörü yeterlidir; HTML ile küçük bir sayfa yapıp adım adım CSS ve JavaScript eklemek en etkili öğrenme yoludur.

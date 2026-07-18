@@ -31,8 +31,10 @@ EMBED_BATCH = 4
 TOP_K = 3            # bağlam olarak kullanılacak en fazla chunk sayısı
 
 # Bu skorun altındaki chunk'lar soruyla ilgisiz kabul edilir.
-# degerlendirme.py setiyle qwen3-embedding-0.6b üzerinde kalibre edildi:
-# cevaplanabilir soruların en düşüğü 0.500, ilgisizlerin en yükseği 0.394.
+# 15 belge / 30 soruluk degerlendirme.py setiyle qwen3-embedding-0.6b
+# üzerinde kalibre edildi: reddedilmesi gerekenlerin en yükseği 0.423,
+# cevaplanabilir soruların çoğu 0.49+. Çok kısa sorular (ör. "DNS ne işe
+# yarar?") eşiğin hemen altında kalabilir; soruyu detaylandırmak yeterli.
 # Alakasız sonuçlar görürseniz yükseltin, "bilgi yok" cevabı çok sık
 # geliyorsa düşürün.
 MIN_SKOR = 0.45

@@ -1,0 +1,48 @@
+İşletim Sistemleri - Temel Kavramlar
+
+İşletim sistemi (Operating System), bilgisayar donanımı ile uygulamalar arasında köprü kuran temel yazılımdır. Belleği, işlemciyi, depolamayı ve çevre birimlerini yönetir. Windows, macOS, Linux ve Android en yaygın işletim sistemleridir.
+
+== İşletim Sisteminin Görevleri ==
+
+1. İşlem yönetimi: Hangi programın ne zaman işlemci kullanacağına karar verir.
+2. Bellek yönetimi: RAM'i programlar arasında paylaştırır ve korur.
+3. Dosya sistemi yönetimi: Verilerin diskte saklanmasını ve bulunmasını sağlar.
+4. Aygıt yönetimi: Klavye, yazıcı, ekran gibi donanımlarla iletişimi sürücüler üzerinden yürütür.
+5. Güvenlik: Kullanıcı hesapları, izinler ve kaynak erişimini denetler.
+
+== İşlem (Process) ve İş Parçacığı (Thread) ==
+
+İşlem, çalışan bir programın bellekteki örneğidir. Her işlem kendi adres alanına sahiptir; bir işlem çökerse diğerleri etkilenmez.
+
+İş parçacığı, bir işlem içindeki bağımsız çalışma birimidir. Aynı işlemin iş parçacıkları belleği paylaşır; bu iletişimi hızlandırır ama eşzamanlılık hatalarına (race condition) dikkat gerektirir.
+
+Çoklu görev (multitasking): İşletim sistemi, işlemciyi çok kısa dilimler halinde işlemler arasında paylaştırır; böylece programlar aynı anda çalışıyormuş gibi görünür. Bu geçişe bağlam değiştirme (context switch) denir.
+
+== Bellek Yönetimi ==
+
+RAM, çalışan programların verilerini tutan hızlı ama geçici bellektir. İşletim sistemi her işleme sanal bellek adresleri verir; fiziksel RAM yetmediğinde az kullanılan sayfalar diske (sayfalama dosyası/swap) taşınır. Disk RAM'den çok daha yavaş olduğundan, yoğun sayfalama bilgisayarı belirgin şekilde yavaşlatır.
+
+== Dosya Sistemleri ==
+
+Dosya sistemi, verilerin diskte nasıl organize edildiğini belirler:
+
+- NTFS: Windows'un standart dosya sistemi; izinler ve büyük dosya desteği sunar.
+- FAT32/exFAT: Taşınabilir bellekler için yaygın; FAT32'de 4 GB dosya sınırı vardır.
+- ext4: Linux dağıtımlarının yaygın dosya sistemi.
+- APFS: Apple cihazlarının modern dosya sistemi.
+
+Dosyalar hiyerarşik klasör yapısında tutulur. Windows'ta yollar C:\Kullanicilar\Ali gibi ters bölü, Linux ve macOS'ta /home/ali gibi düz bölü ile yazılır.
+
+== Çekirdek (Kernel) ==
+
+Çekirdek, işletim sisteminin donanıma en yakın çalışan merkez bileşenidir. Uygulamalar donanıma doğrudan erişemez; sistem çağrıları (system call) aracılığıyla çekirdekten hizmet ister. Bu katmanlı yapı güvenliği ve kararlılığı sağlar.
+
+== Sanallaştırma ==
+
+Sanallaştırma, tek fiziksel makinede birden fazla sanal makine (VM) çalıştırmayı sağlar. Her sanal makinenin kendi işletim sistemi vardır ve hipervizör tarafından yönetilir. Test ortamları, sunucu konsolidasyonu ve farklı işletim sistemlerini denemek için kullanılır. Konteynerler ise işletim sistemi çekirdeğini paylaşarak daha hafif bir yalıtım sunar.
+
+== Performans İzleme ==
+
+Windows'ta Görev Yöneticisi (Task Manager), macOS'ta Activity Monitor, Linux'ta top/htop komutları; işlemci, bellek ve disk kullanımını gösterir. Yavaşlayan bir bilgisayarda ilk bakılacak yerler: arka planda çalışan işlemler, bellek doluluk oranı ve disk etkinliğidir.
+
+İşletim sistemi kavramlarını bilmek; yazılım hatalarını anlamada, performans sorunlarını çözmede ve bilinçli donanım seçiminde doğrudan fayda sağlar.
